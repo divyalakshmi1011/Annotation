@@ -34,14 +34,21 @@ class Form extends React.Component {
                     </div>
                     <div>
                         <p style={{fontFamily: "Arial"}}>Press this button to add QnA</p>
-                    <button style={{backgroundColor:"green",  height: "50%"}} >Add QnA</button>
+                    <button style={{backgroundColor:"green", padding: "10px",
+      fontFamily: "Arial",
+      display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "10%"}} >Add QnA</button>
                     </div>
 
                 </form>
+                
             </div>
 
         )
     }
+    
 
     handleChange = (event) => {
 
@@ -83,12 +90,13 @@ class Task extends React.Component {
         }
 
         this.addTask = this.addTask.bind(this)
+        this.finishQnA = this.finishQnA.bind(this)
     }
 
     render() {
 
         return (
-
+            <div>
             <div>
 
                 <h1>QnA</h1>
@@ -108,20 +116,22 @@ class Task extends React.Component {
                 <Form addTask={this.addTask}/>
                 
             </div>
+              <div>
+                  <p>Press this button to finsh the QnA session</p>
+                  <button  style={{backgroundColor:"yellow", padding: "10px",
+      fontFamily: "Arial",
+      display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "30%"}} onClick={this.finishQnA}> Finish QnA</button>
+              </div>
+            </div>
         );
     }
-
-    componentDidMount() {
-        const tasks = localStorage.getItem("tasks");
-        if (tasks !== null) {
-            this.setState({
-                taskList : JSON.parse(tasks)
-            })
-        }
-        window.addEventListener("beforeunload", () => {
-            localStorage.setItem("tasks", JSON.stringify(this.state.taskList));
-        })
+    finishQnA() {
+        console.log(this.state.taskList);
     }
+    
     addTask = (task, Answer) => {
 
         this.setState(state => ({

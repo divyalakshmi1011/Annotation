@@ -3,7 +3,7 @@
  
 class Example extends React.Component {
   myFunction() {
-    window.location.assign("create_index.html");
+    window.location.assign("QnA.html");
   }
   render() {
     const mystyle = {
@@ -20,7 +20,7 @@ class Example extends React.Component {
       <div>
       <div>
         <p>Press this button for "CREATING INTENTS" out of raw data</p>
-        <button  style={mystyle} onClick={this.myFunction}>Create Intent</button>
+        <button  style={mystyle}>Create Intent</button>
       </div>
       <div>
         <p>Press this button for "CREATING QUESTIONS" and answers out of raw data</p>
